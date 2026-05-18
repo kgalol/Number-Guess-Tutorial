@@ -16,6 +16,8 @@ public class Main {
         // Create the Random Number
         int number = random.nextInt(0,101);
 
+        boolean correct = playnum == number;
+
         // Welcome message and rules
         System.out.println("Welcome to my number guessing game.");
         System.out.println("The rules of this game are: Enter a # and I'll tell you if it it higher or lower.");
@@ -59,13 +61,13 @@ public class Main {
         }
 
         // Checks if player runs out of guesses and player guess is NOT equal to the random number.
-        if (count >= guesses && playnum != number) {
+        if (count >= guesses && !correct) {
             System.out.println("Uh oh! You lost.");
             System.out.println("The number was: " + number);
         }
 
         // Checks if player still has guesses leftover and guesses the correct number.
-        if (count < guesses && playnum == number) {
+        if (count < guesses && correct) {
             System.out.println("Congratulations! You win!");
             System.out.println("The number was: " + number);
         }
